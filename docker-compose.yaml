@@ -1,0 +1,19 @@
+version: "3"
+services:
+  api:
+    image: bookapi
+    container_name: bookapi
+    ports:
+      - 3000:3000
+    links:
+      - postgres
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:latest
+    container_name: bookapi-postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=bookapi

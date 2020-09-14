@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bookapi
+spec:
+  selector:
+    matchLabels:
+      app: bookapi
+      tier: backend
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: bookapi
+        tier: backend
+    spec:
+      containers:
+        - name: app
+          image: sameerverma/bookapi:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+          env:
+            - name: PG_HOST
+              value: "postgres-master.default"
