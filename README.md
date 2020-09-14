@@ -1,6 +1,6 @@
-# Berkedia Node js challenge
+# Node js challenge
 
-This project is a challenge from Berkedia which requires to create a node js application CRUD
+This project is a challenge which requires to create a node js application CRUD
 and deploy it on minikube kubernetes cluster.
 
 ## Usage
@@ -82,7 +82,7 @@ second for `https` traffic. Should you want to try SSL, use:
 
     curl -k -X POST $(minikube service nginx --url | tail -n 1 | sed 's/http:/https:/')/books \
         -H 'Content-Type: application/json' \
-        -d '{"title": "Berkedia challenge", "author": "Sameer Verma"}'
+        -d '{"title": "challenge", "author": "Sameer Verma"}'
 
 Note the current deploy does not mount the database volume in any
 persistent place.
